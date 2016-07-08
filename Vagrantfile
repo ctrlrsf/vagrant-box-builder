@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get -y dist-upgrade
-    apt-get clean
+    apt-get dist-upgrade -y
+    apt-get clean -y
   SHELL
 end
