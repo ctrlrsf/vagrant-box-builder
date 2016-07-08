@@ -15,7 +15,7 @@ EOF
 }
 
 get_virtualbox_vm_name() {
-  VBoxManage list vms | grep "${BASE_VIRTUALBOX_VM_NAME}" | awk '{print $1}' | tr -d \"
+  VBoxManage list vms | grep "${BASE_VIRTUALBOX_VM_NAME}" | awk '{print $1}' | tr -d \" | tail -1
 }
 
 main() {
