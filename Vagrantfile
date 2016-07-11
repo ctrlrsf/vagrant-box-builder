@@ -14,5 +14,11 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt-get dist-upgrade -y
     apt-get clean -y
+
+    # Disable apt-daily service on boot
+    # Conflicts with apt-get update ran by Vagrant when bringing up a new box
+    # Causes dpkg lock error
+    systemctl disable apt-daily.service
+    systemctl disable apt-daily.timer
   SHELL
 end
